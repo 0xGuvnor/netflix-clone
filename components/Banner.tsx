@@ -21,14 +21,12 @@ const Banner = ({ trendingNow }: Props) => {
   return (
     <div className="flex flex-col py-16 space-y-2 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
       <div className="absolute top-0 left-0 h-[95vh] w-screen -z-10">
-        {movie && (
-          <Image
-            src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
-            alt="Movie Banner"
-            fill
-            className="object-cover"
-          />
-        )}
+        <Image
+          src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
+          alt="Movie Banner"
+          fill
+          className="object-cover"
+        />
       </div>
 
       <h1 className="text-2xl font-bold text-shadow-md lg:text-7xl md:text-4xl">
