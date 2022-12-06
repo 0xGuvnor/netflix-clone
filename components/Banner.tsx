@@ -21,7 +21,9 @@ const Banner = ({ trendingNow }: Props) => {
       <div className="absolute top-0 left-0 h-[95vh] w-screen -z-10">
         {movie && (
           <Image
-            src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
+            src={`${baseUrl}${
+              movie?.backdrop_path || movie?.poster_path
+            }`.toLowerCase()}
             alt="Movie Banner"
             fill
             className="object-cover"
