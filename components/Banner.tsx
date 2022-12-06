@@ -10,7 +10,7 @@ interface Props {
 }
 
 const Banner = ({ trendingNow }: Props) => {
-  const [movie, setMovie] = useState<Movie | null>(null);
+  const [movie, setMovie] = useState<Movie | null>(trendingNow[0]);
 
   useEffect(() => {
     setMovie(trendingNow[Math.floor(Math.random() * trendingNow.length)]);
