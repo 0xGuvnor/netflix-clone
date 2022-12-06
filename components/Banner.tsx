@@ -24,7 +24,7 @@ const Banner = ({ trendingNow }: Props) => {
             src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
             alt="Movie Banner"
             fill
-            className="object-cover overflow-hidden"
+            className="object-cover"
           />
         )}
       </div>
