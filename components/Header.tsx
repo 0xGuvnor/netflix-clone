@@ -45,7 +45,7 @@ const Header = () => {
         </ul>
       </div>
 
-      <div className="flex items-center space-x-4 text-sm font-light">
+      <div className="flex items-center text-sm font-light space-x-4">
         <HiSearch className="hidden w-6 h-6 sm:inline" />
         <p className="hidden lg:inline">Kids</p>
         <HiBell className="w-6 h-6" />
