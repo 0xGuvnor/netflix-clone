@@ -25,6 +25,7 @@ const Banner = ({ trendingNow }: Props) => {
             alt="Movie Banner"
             fill
             className="object-cover"
+            loading="eager"
           />
         )}
       </div>
