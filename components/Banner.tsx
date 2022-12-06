@@ -25,6 +25,11 @@ const Banner = ({ trendingNow }: Props) => {
           fill
           priority
           quality={100}
+          onError={() =>
+            setMovie(
+              trendingNow[Math.floor(Math.random() * trendingNow.length)]
+            )
+          }
           className="object-cover"
         />
       </div>
