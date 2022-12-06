@@ -24,6 +24,7 @@ const Banner = ({ trendingNow }: Props) => {
           alt="Movie Banner"
           fill
           priority
+          placeholder="blur"
           className="object-cover"
         />
       </div>
