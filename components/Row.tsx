@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Movie } from "../typings";
 import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
 import Thumbnail from "./Thumbnail";
@@ -27,6 +27,14 @@ const Row = ({ title, movies }: Props) => {
     }
   };
 
+  const handleScroll = () => {
+    if (!rowRef.current) return;
+
+    if (rowRef.current.scrollLeft > 0) {
+      setIsMoved(true);
+    }
+  };
+
   return (
     <div className="h-40 space-y-0.5 md:space-y-2">
       <h2 className="w-56 text-sm font-semibold cursor-pointer text-[#e5e5e5] transition duration-200 hover:text-white md:text-2xl">
@@ -42,6 +50,7 @@ const Row = ({ title, movies }: Props) => {
 
         <div
           ref={rowRef}
+          onScroll={handleScroll}
           className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2 snap-x"
         >
           {movies.map((movie) => (
