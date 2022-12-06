@@ -15,6 +15,8 @@ const Thumbnail = ({ movie }: Props) => {
         }`}
         alt={`${movie.title} Movie Thumbnail`}
         fill
+        sizes="40vw"
+        priority
         className="object-cover rounded-sm md:rounded"
       />
     </div>
