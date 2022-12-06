@@ -2,8 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { HiSearch, HiBell } from "react-icons/hi";
+import useAuth from "../hooks/useAuth";
 
 const Header = () => {
+  const { logout } = useAuth();
+
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -49,15 +52,16 @@ const Header = () => {
         <HiSearch className="hidden w-6 h-6 sm:inline" />
         <p className="hidden lg:inline">Kids</p>
         <HiBell className="w-6 h-6" />
-        <Link href="/account">
-          <Image
-            src="https://rb.gy/g1pwyx"
-            alt="Profile Picture"
-            width={28}
-            height={28}
-            className="rounded cursor-pointer"
-          />
-        </Link>
+        {/* <Link href="/account"> */}
+        <Image
+          src="https://rb.gy/g1pwyx"
+          alt="Profile Picture"
+          width={28}
+          height={28}
+          onClick={logout}
+          className="rounded cursor-pointer"
+        />
+        {/* </Link> */}
       </div>
     </header>
   );
