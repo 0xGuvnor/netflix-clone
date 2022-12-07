@@ -17,7 +17,6 @@ const Modal = () => {
   const [showModal, setShowModal] = useRecoilState(modalState);
   const modalMovie = useRecoilValue(movieState);
   const [trailer, setTrailer] = useState("");
-  const [teaser, setTeaser] = useState("");
   const [genres, setGenres] = useState<Genre[]>([]);
   const [muted, setMuted] = useState(true);
 
@@ -65,7 +64,7 @@ const Modal = () => {
       onClose={handleClose}
       className="fixed left-0 right-0 !top-7 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
     >
-      <>
+      <div className="outline-none">
         <button
           onClick={handleClose}
           className="absolute !z-40 modalBtn top-5 h-9 bg-[#181818] hover:bg-gray-800 right-5 w-9 border-none"
@@ -79,6 +78,7 @@ const Modal = () => {
             width="100%"
             height="100%"
             playing
+            controls
             muted={muted}
             style={{ position: "absolute", top: "0px", left: "0px" }}
           />
@@ -143,7 +143,7 @@ const Modal = () => {
             </div>
           </div>
         </div>
-      </>
+      </div>
     </MuiModal>
   );
 };
