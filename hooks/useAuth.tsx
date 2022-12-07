@@ -111,7 +111,7 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
         setUser(user);
         setLoading(false);
       } else {
-        // not loggin in
+        // not logged in
         setUser(null);
         setLoading(true);
         router.push("/login");
