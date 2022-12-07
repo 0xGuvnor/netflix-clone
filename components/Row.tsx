@@ -51,7 +51,7 @@ const Row = ({ title, movies }: Props) => {
         <div
           ref={rowRef}
           onScroll={handleScroll}
-          className="flex items-center space-x-0.5 overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2 snap-x"
+          className="flex space-x-0.5 items-center overflow-x-scroll scrollbar-hide md:space-x-2.5 md:p-2 snap-x"
         >
           {movies.map((movie) => (
             <Thumbnail key={movie.id} movie={movie} />

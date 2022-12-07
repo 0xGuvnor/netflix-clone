@@ -4,6 +4,8 @@ import { baseUrl } from "../constants/movie";
 import { Movie } from "../typings";
 import { FaPlay } from "react-icons/fa";
 import { IoMdInformationCircleOutline } from "react-icons/io";
+import { useRecoilState } from "recoil";
+import { modalState, movieState } from "../atoms/modalAtom";
 
 interface Props {
   trendingNow: Movie[];
@@ -11,6 +13,8 @@ interface Props {
 
 const Banner = ({ trendingNow }: Props) => {
   const [movie, setMovie] = useState<Movie | null>(null);
+  const [showModal, setShowModal] = useRecoilState(modalState);
+  const [modalMovie, setModalMovie] = useRecoilState(movieState);
 
   useEffect(() => {
     setMovie(trendingNow[Math.floor(Math.random() * trendingNow.length)]);
@@ -42,7 +46,13 @@ const Banner = ({ trendingNow }: Props) => {
           <FaPlay className="w-4 h-4 text-black md:w-7 md:h-7" />
           Play
         </button>
-        <button className="bannerBtn bg-[gray]/70 w-1/2">
+        <button
+          onClick={() => {
+            setShowModal(true);
+            setModalMovie(movie);
+          }}
+          className="bannerBtn bg-[gray]/70 w-1/2"
+        >
           <IoMdInformationCircleOutline className="w-5 h-5 md:h-8 md:w-8" />
           More Info
         </button>
