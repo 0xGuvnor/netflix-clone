@@ -37,7 +37,7 @@ const Banner = ({ trendingNow }: Props) => {
           sizes="100vw"
           priority
           quality={100}
-          className="object-cover"
+          className="z-10 object-cover"
         />
       </div>
 
