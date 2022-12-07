@@ -24,14 +24,7 @@ const Banner = ({ trendingNow }: Props) => {
     <div className="flex flex-col py-16 space-y-2 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12">
       <div className="absolute top-0 left-0 h-[95vh] w-screen -zz-10">
         <Image
-          src={`https://image.tmdb.org/t/p/w500${
-            movie?.backdrop_path || movie?.poster_path
-          }`}
-          // src={
-          //   movie
-          //     ? `${baseUrl}${movie?.backdrop_path || movie?.poster_path}`
-          //     : "https://images.unsplash.com/photo-1670406071608-76d52af56c67?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80"
-          // }
+          src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
           alt="Movie Banner"
           fill
           sizes="100vw"
