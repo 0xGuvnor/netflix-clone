@@ -1,4 +1,3 @@
-import React from "react";
 import MuiModal from "@mui/material/Modal";
 import { useRecoilState } from "recoil";
 import { modalState } from "../atoms/modalAtom";
