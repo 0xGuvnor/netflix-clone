@@ -8,19 +8,19 @@ module.exports = {
       {
         protocol: "https",
         hostname: "image.tmdb.org",
-        port: "",
+        // port: "",
         pathname: "/t/p/**",
       },
       {
         protocol: "https",
         hostname: "rb.gy",
-        port: "",
+        // port: "",
         pathname: "/**",
       },
       {
         protocol: "https",
         hostname: "images.unsplash.com",
-        port: "",
+        // port: "",
         pathname: "/**",
       },
     ],

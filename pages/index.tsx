@@ -5,6 +5,7 @@ import { modalState } from "../atoms/modalAtom";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
+import Plans from "../components/Plans";
 import Row from "../components/Row";
 import useAuth from "../hooks/useAuth";
 import { Movie } from "../typings";
@@ -33,10 +34,11 @@ const Home: NextPage<Props> = ({
 }) => {
   const { loading } = useAuth();
   const showModal = useRecoilValue(modalState);
+  const subscription = false;
 
-  if (loading) return null;
+  if (loading || subscription === null) return null;
 
-  return (
+  return subscription ? (
     <div className="relative h-screen bg-gradient-to-b lg:h-[140vh]">
       <Head>
         <title>Home - Netflix</title>
@@ -59,6 +61,8 @@ const Home: NextPage<Props> = ({
 
       {showModal && <Modal />}
     </div>
+  ) : (
+    <Plans />
   );
 };
 
