@@ -37,7 +37,7 @@ const Banner = ({ trendingNow }: Props) => {
       <h1 className="text-2xl max-w-[75%] font-bold text-shadow-md lg:text-5xl md:text-4xl">
         {movie?.title || movie?.name || movie?.original_name}
       </h1>
-      <p className="max-w-xs text-xs text-justify text-shadow-md md:max-w-lg md:text-md lg:max-w-2xl lg:text-lg">
+      <p className="max-w-xs text-xs text-left text-shadow-md md:max-w-lg md:text-base lg:max-w-2xl lg:text-lg">
         {movie?.overview}
       </p>
 
