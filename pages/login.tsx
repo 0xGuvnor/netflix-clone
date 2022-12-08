@@ -53,7 +53,7 @@ const Login = () => {
 
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="relative px-6 py-10 mt-24 space-y-8 rounded-xl md:w-full bg-black/75 md:mt-0 md:max-w-md md:px-14"
+        className="relative px-6 py-10 mt-24 space-y-8 rounded-md md:w-full bg-black/75 md:mt-0 md:max-w-md md:px-14"
       >
         <h1 className="text-4xl font-semibold">Sign In</h1>
 
