@@ -51,6 +51,7 @@ const Home: NextPage<Props> = ({
         <section className="md:space-y-16">
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
+          <Row title="Netflix Originals" movies={netflixOriginals} />
           <Row title="Action Thrillers" movies={actionMovies} />
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Horror" movies={horrorMovies} />
