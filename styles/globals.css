@@ -44,4 +44,24 @@
   .tableDataFeature {
     @apply w-[calc(100%/3)] p-2.5 text-center md:w-[calc(60%/3)] md:p-3.5;
   }
+
+  .membershipLink {
+    @apply cursor-pointer text-blue-500 hover:underline;
+  }
+
+  .menu {
+    @apply md:hidden;
+  }
+
+  .menu .MuiMenu-paper {
+    @apply !rounded-none !border-t-2 !border-gray-300 !bg-black/90 !text-white !left-0;
+  }
+
+  .menu .MuiMenu-list {
+    @apply !p-0;
+  }
+
+  .menu-item {
+    @apply !w-80 !block !py-3.5 !text-center !text-sm !font-light !text-[#b3b3b3] !transition !duration-200 first:!text-white first:!cursor-default first:!font-normal hover:!bg-[#201e1c];
+  }
 }

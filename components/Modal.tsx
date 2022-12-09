@@ -18,6 +18,7 @@ const Modal = () => {
   const modalMovie = useRecoilValue(movieState);
   const [trailer, setTrailer] = useState("");
   const [genres, setGenres] = useState<Genre[]>([]);
+  const [runtime, setRuntime] = useState<number>(0);
   const [muted, setMuted] = useState(false);
 
   const handleClose = () => {
@@ -46,9 +47,11 @@ const Modal = () => {
           );
           setTrailer(data.videos.results[index].key);
         }
-
         if (data?.genres) {
           setGenres(data.genres);
+        }
+        if (data?.runtime) {
+          setRuntime(data.runtime);
         }
       } catch (error) {
         console.error(error);
@@ -123,8 +126,16 @@ const Modal = () => {
             </div>
 
             <div className="flex flex-col font-light gap-x-10 gap-y-4 md:flex-row">
-              <p className="w-5/6">{modalMovie?.overview}</p>
+              <div className="space-y-1 md:space-y-3">
+                <p className="text-2xl font-bold">{modalMovie?.title}</p>
+                <p className="w-5/6">{modalMovie?.overview}</p>
+              </div>
               <div className="flex flex-col space-y-3 text-sm">
+                <div>
+                  <span className="text-[gray]">Runtime: </span>
+                  {runtime} minutes
+                </div>
+
                 <div>
                   <span className="text-[gray]">Genres: </span>
                   {genres.map((genre) => genre.name).join(", ")}

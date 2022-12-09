@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { HiSearch, HiBell } from "react-icons/hi";
-import useAuth from "../hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
+import Menu from "./Menu";
 
 const Header = () => {
   const { logout } = useAuth();
@@ -39,6 +40,9 @@ const Header = () => {
           height={100}
           className="object-contain cursor-pointer"
         />
+
+        <Menu />
+
         <ul className="hidden space-x-4 md:flex">
           <li className="headerLink">Home</li>
           <li className="headerLink">Series</li>

@@ -8,7 +8,6 @@ import Header from "../components/Header";
 import Modal from "../components/Modal";
 import Plans from "../components/Plans";
 import Row from "../components/Row";
-import app from "../firebase";
 import useAuth from "../hooks/useAuth";
 import useSubscription from "../hooks/useSubscription";
 import payments from "../lib/stripe";
@@ -41,8 +40,6 @@ const Home: NextPage<Props> = ({
   const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalState);
   const subscription = useSubscription(user);
-
-  console.log(app);
 
   if (loading || subscription === null) return null;
 
