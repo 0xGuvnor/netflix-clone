@@ -52,16 +52,15 @@ const Header = () => {
         <HiSearch className="hidden w-6 h-6 sm:inline" />
         <p className="hidden lg:inline">Kids</p>
         <HiBell className="w-6 h-6" />
-        {/* <Link href="/account"> */}
-        <Image
-          src="https://rb.gy/g1pwyx"
-          alt="Profile Picture"
-          width={28}
-          height={28}
-          onClick={logout}
-          className="rounded cursor-pointer"
-        />
-        {/* </Link> */}
+        <Link href="/account">
+          <Image
+            src="https://rb.gy/g1pwyx"
+            alt="Profile Picture"
+            width={28}
+            height={28}
+            className="rounded"
+          />
+        </Link>
       </div>
     </header>
   );
