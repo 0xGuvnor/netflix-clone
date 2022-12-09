@@ -57,6 +57,7 @@ const Home: NextPage<Props> = ({
           <Row title="Trending Now" movies={trendingNow} />
           <Row title="Top Rated" movies={topRated} />
           <Row title="Netflix Originals" movies={netflixOriginals} />
+          {/* myList */}
           <Row title="Action Thrillers" movies={actionMovies} />
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Horror" movies={horrorMovies} />
