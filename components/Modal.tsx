@@ -25,6 +25,13 @@ import { db } from "../firebase";
 import useAuth from "../hooks/useAuth";
 import { Genre, Movie, VideoType } from "../typings";
 
+const toastStyle = {
+  borderRadius: "9999px",
+  fontWeight: "bold",
+  padding: "16px",
+  maxWidth: "1000px",
+};
+
 const Modal = () => {
   const [showModal, setShowModal] = useRecoilState(modalState);
   const modalMovie = useRecoilValue(movieState);
@@ -50,7 +57,10 @@ const Modal = () => {
         `${
           modalMovie?.title || modalMovie?.original_name
         } has been removed from My List`,
-        { duration: 8000 }
+        {
+          duration: 8000,
+          style: toastStyle,
+        }
       );
     } else {
       await setDoc(
@@ -62,7 +72,10 @@ const Modal = () => {
         `${
           modalMovie?.title || modalMovie?.original_name
         } has been added to My List`,
-        { duration: 8000 }
+        {
+          duration: 8000,
+          style: toastStyle,
+        }
       );
     }
   };
