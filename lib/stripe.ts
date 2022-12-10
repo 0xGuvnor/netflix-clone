@@ -33,7 +33,6 @@ const loadBillingPortal = async () => {
 
   const { data }: any = await functionRef({
     returnUrl: `${window.location.origin}/account`,
-    locale: "auto", // Optional, defaults to "auto"
   });
   window.location.assign(data.url);
 };

@@ -1,29 +1,90 @@
 import MuiModal from "@mui/material/Modal";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  DocumentData,
+  onSnapshot,
+  setDoc,
+} from "firebase/firestore";
 import { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 import { FaPlay } from "react-icons/fa";
 import {
+  HiOutlineCheck,
+  HiOutlinePlus,
   HiOutlineThumbUp,
   HiOutlineVolumeOff,
   HiOutlineVolumeUp,
   HiX,
 } from "react-icons/hi";
-import { HiOutlinePlus } from "react-icons/hi2";
 import ReactPlayer from "react-player/lazy";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { modalState, movieState } from "../atoms/modalAtom";
-import { Genre, VideoType } from "../typings";
+import { db } from "../firebase";
+import useAuth from "../hooks/useAuth";
+import { Genre, Movie, VideoType } from "../typings";
 
 const Modal = () => {
   const [showModal, setShowModal] = useRecoilState(modalState);
   const modalMovie = useRecoilValue(movieState);
+  const [movies, setMovies] = useState<DocumentData[] | Movie[]>([]);
   const [trailer, setTrailer] = useState("");
   const [genres, setGenres] = useState<Genre[]>([]);
   const [runtime, setRuntime] = useState<number>(0);
   const [muted, setMuted] = useState(false);
+  const [addedToList, setAddedToList] = useState(false);
+  const { user } = useAuth();
 
   const handleClose = () => {
     setShowModal(false);
   };
+
+  const handleList = async () => {
+    if (addedToList) {
+      await deleteDoc(
+        doc(db, "customers", user!.uid, "myList", modalMovie!.id.toString())
+      );
+
+      toast(
+        `${
+          modalMovie?.title || modalMovie?.original_name
+        } has been removed from My List`,
+        { duration: 8000 }
+      );
+    } else {
+      await setDoc(
+        doc(db, "customers", user!.uid, "myList", modalMovie!.id.toString()),
+        { ...modalMovie }
+      );
+
+      toast(
+        `${
+          modalMovie?.title || modalMovie?.original_name
+        } has been added to My List`,
+        { duration: 8000 }
+      );
+    }
+  };
+
+  // Find all movies in the user's list
+  useEffect(() => {
+    if (user) {
+      onSnapshot(
+        collection(db, "customers", user.uid, "myList"),
+        (snapshot) => {
+          setMovies(snapshot.docs);
+        }
+      );
+    }
+  }, [db, modalMovie?.id]);
+
+  // Check if the movie is already in the user's list
+  useEffect(() => {
+    setAddedToList(
+      movies.findIndex((movie) => movie.data().id === modalMovie!.id) !== -1
+    );
+  }, [movies]);
 
   useEffect(() => {
     if (!modalMovie) return;
@@ -68,13 +129,13 @@ const Modal = () => {
       className="fixed left-0 right-0 !top-7 z-50 mx-auto w-full max-w-5xl overflow-hidden overflow-y-scroll rounded-md scrollbar-hide"
     >
       <div className="outline-none">
+        <Toaster position="bottom-center" />
         <button
           onClick={handleClose}
           className="absolute !z-40 modalBtn top-5 h-9 bg-[#181818] hover:bg-gray-800 right-5 w-9 border-none"
         >
           <HiX className="w-6 h-6" />
         </button>
-
         <div className="relative pt-[56.25%]">
           <ReactPlayer
             url={`https://www.youtube.com/watch?v=${trailer}`}
@@ -93,8 +154,12 @@ const Modal = () => {
                 Play
               </button>
 
-              <button className="modalBtn">
-                <HiOutlinePlus className="w-4 h-4 text-gray-300" />
+              <button onClick={handleList} className="modalBtn">
+                {addedToList ? (
+                  <HiOutlineCheck className="w-4 h-4 text-gray-300" />
+                ) : (
+                  <HiOutlinePlus className="w-4 h-4 text-gray-300" />
+                )}
               </button>
 
               <button className="modalBtn">
@@ -110,7 +175,6 @@ const Modal = () => {
             </button>
           </div>
         </div>
-
         <div className="flex space-x-16 rounded-b-xl bg-[#181818] px-10 py-8">
           <div className="space-y-6 text-lg">
             <div className="flex items-center space-x-2 text-sm">

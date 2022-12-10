@@ -83,7 +83,7 @@ const Account = ({ products }: Props) => {
           <h4 className="text-lg text-[gray]">Settings</h4>
           <p
             onClick={logout}
-            className="col-span-3 text-blue-500 cursor-pointer hover:underline"
+            className="col-span-3 text-blue-500 cursor-pointer hover:underline md:text-right"
           >
             Sign out of all devices
           </p>
