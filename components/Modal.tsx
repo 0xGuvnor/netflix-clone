@@ -8,7 +8,7 @@ import {
   setDoc,
 } from "firebase/firestore";
 import { useEffect, useState } from "react";
-import { toast, Toaster } from "react-hot-toast";
+import { Toast, toast, Toaster } from "react-hot-toast";
 import { FaPlay } from "react-icons/fa";
 import {
   HiOutlineCheck,
@@ -53,30 +53,26 @@ const Modal = () => {
         doc(db, "customers", user!.uid, "myList", modalMovie!.id.toString())
       );
 
-      toast(
-        `${
-          modalMovie?.title || modalMovie?.original_name
-        } has been removed from My List`,
-        {
-          duration: 8000,
-          style: toastStyle,
-        }
-      );
+      toast.custom((t) => (
+        <Notif
+          t={t}
+          movie={modalMovie as Movie}
+          message="has been removed from My List"
+        />
+      ));
     } else {
       await setDoc(
         doc(db, "customers", user!.uid, "myList", modalMovie!.id.toString()),
         { ...modalMovie }
       );
 
-      toast(
-        `${
-          modalMovie?.title || modalMovie?.original_name
-        } has been added to My List`,
-        {
-          duration: 8000,
-          style: toastStyle,
-        }
-      );
+      toast.custom((t) => (
+        <Notif
+          t={t}
+          movie={modalMovie as Movie}
+          message="has been added to My List"
+        />
+      ));
     }
   };
 
@@ -237,3 +233,23 @@ const Modal = () => {
 };
 
 export default Modal;
+
+const Notif = ({
+  t,
+  movie,
+  message,
+}: {
+  t: Toast;
+  movie: Movie;
+  message: string;
+}) => (
+  <div
+    onClick={() => toast.dismiss(t.id)}
+    className="max-w-5xl px-8 py-4 text-base text-black bg-gray-100 rounded-full cursor-pointer select-none"
+  >
+    <span className="font-bold">{`${
+      movie?.title || movie?.original_name
+    }`}</span>{" "}
+    {message}
+  </div>
+);
