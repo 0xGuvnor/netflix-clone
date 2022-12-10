@@ -22,7 +22,7 @@ const Banner = ({ trendingNow }: Props) => {
 
   return (
     <div className="flex flex-col py-16 space-y-2 md:space-y-4 lg:h-[65vh] lg:justify-end lg:pb-12 select-none">
-      <div className="absolute top-0 left-0 h-[95vh] w-screen -z-10">
+      <div className="absolute top-0 left-0 h-[90vh] w-screen -z-10">
         <Image
           src={`${baseUrl}${movie?.poster_path || movie?.backdrop_path}`}
           alt="Movie Banner"
