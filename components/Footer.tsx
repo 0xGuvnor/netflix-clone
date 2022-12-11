@@ -37,9 +37,9 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="relative mt-6">
+      <div className="relative mt-14">
         <WavesBorder />
-        <div className="flex items-center justify-between px-4 pb-1">
+        <div className="flex flex-wrap items-center justify-around pb-4 text-shadow-lg">
           <div className="flex space-x-1 text-xs font-light">
             <p>Movie data powered by </p>
             <a
@@ -51,7 +51,7 @@ const Footer = () => {
             </a>
           </div>
 
-          <div className="text-xs font-light">
+          <div className="text-xs font-light hover:underline">
             <a
               href="https://github.com/0xpaprhnds/netflix-clone"
               target="_blank"

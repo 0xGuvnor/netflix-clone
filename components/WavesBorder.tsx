@@ -1,6 +1,6 @@
 const WavesBorder = () => {
   return (
-    <div className="custom-shape-divider-bottom-1670760466 -z-10">
+    <div className="custom-shape-divider-bottom-1670767027 -z-10">
       <svg
         data-name="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
