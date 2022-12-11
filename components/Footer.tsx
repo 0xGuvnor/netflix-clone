@@ -7,7 +7,7 @@ import WavesBorder from "./WavesBorder";
 const Footer = () => {
   return (
     <>
-      <div className="p-4 space-y-4">
+      <div className="max-w-5xl p-4 mx-auto space-y-4 select-none">
         <div className="flex space-x-8">
           <ImFacebook className="footerIcon" />
           <GrInstagram className="footerIcon" />
