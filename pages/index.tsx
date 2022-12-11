@@ -4,6 +4,7 @@ import Head from "next/head";
 import { useRecoilValue } from "recoil";
 import { modalState, movieState } from "../atoms/modalAtom";
 import Banner from "../components/Banner";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
 import Plans from "../components/Plans";
@@ -41,7 +42,6 @@ const Home: NextPage<Props> = ({
   const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalState);
   const subscription = useSubscription(user);
-  const movie = useRecoilValue(movieState);
   const list = useList(user?.uid);
 
   if (loading || subscription === null) return null;
@@ -69,6 +69,7 @@ const Home: NextPage<Props> = ({
           <Row title="Documentaries" movies={documentaries} />
         </section>
       </main>
+      <Footer />
 
       {showModal && <Modal />}
     </div>

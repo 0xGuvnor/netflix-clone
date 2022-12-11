@@ -28,7 +28,7 @@ export default function Menu() {
         <span>
           <IoMdArrowDropup
             className={`w-4 h-4 transition duration-300 ease-in-out ${
-              open && "rotate-180"
+              open && "-rotate-180"
             }`}
           />
         </span>

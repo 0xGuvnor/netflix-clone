@@ -6,8 +6,6 @@ import useAuth from "../../hooks/useAuth";
 import Menu from "./Menu";
 
 const Header = () => {
-  const { logout } = useAuth();
-
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -29,7 +27,7 @@ const Header = () => {
   return (
     <header
       className={`${
-        isScrolled && "bg-[#141414] transition duration-300 ease-in-out"
+        isScrolled && "bg-stone-800/95 transition duration-500 ease-in-out"
       }`}
     >
       <div className="flex items-center space-x-2 md:space-x-10">

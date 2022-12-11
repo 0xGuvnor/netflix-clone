@@ -60,13 +60,6 @@ const Table = ({ products, selectedPlan }: Props) => {
             </td>
           ))}
         </tr>
-        {/* 
-        <TableRow
-          products={products}
-          selectedPlan={selectedPlan}
-          title="Resolution"
-          value={"1"}
-        /> */}
 
         <tr className="tableRow">
           <td className="tableDataTitle">
@@ -94,19 +87,3 @@ const Table = ({ products, selectedPlan }: Props) => {
   );
 };
 export default Table;
-
-// const TableRow = ({ products, selectedPlan, title, value }: Props) => (
-//   <tr className="tableRow">
-//     <td className="tableDataTitle">{title}</td>
-//     {products.map((product) => (
-//       <td
-//         key={product.id}
-//         className={`tableDataFeature ${
-//           selectedPlan.id === product.id ? "text-[#e50914]" : "text-[gray]"
-//         }`}
-//       >
-//         {product[value?.a!][value.b!]}
-//       </td>
-//     ))}
-//   </tr>
-// );
