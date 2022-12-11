@@ -244,7 +244,7 @@ const Notif = ({
   message: string;
 }) => (
   <div
-    onClick={() => toast.dismiss(t.id)}
+    onClick={() => toast.remove(t.id)}
     className="max-w-5xl px-8 py-4 text-base text-black bg-gray-100 rounded-full cursor-pointer select-none"
   >
     <span className="font-bold">{`${

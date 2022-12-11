@@ -2,13 +2,14 @@ import { getProducts, Product } from "@stripe/firestore-stripe-payments";
 import type { GetServerSideProps, NextPage } from "next";
 import Head from "next/head";
 import { useRecoilValue } from "recoil";
-import { modalState } from "../atoms/modalAtom";
+import { modalState, movieState } from "../atoms/modalAtom";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
 import Modal from "../components/Modal";
 import Plans from "../components/Plans";
 import Row from "../components/Row";
 import useAuth from "../hooks/useAuth";
+import useList from "../hooks/useList";
 import useSubscription from "../hooks/useSubscription";
 import payments from "../lib/stripe";
 import { Movie } from "../typings";
@@ -40,6 +41,8 @@ const Home: NextPage<Props> = ({
   const { loading, user } = useAuth();
   const showModal = useRecoilValue(modalState);
   const subscription = useSubscription(user);
+  const movie = useRecoilValue(movieState);
+  const list = useList(user!.uid);
 
   if (loading || subscription === null) return null;
 
@@ -58,6 +61,7 @@ const Home: NextPage<Props> = ({
           <Row title="Top Rated" movies={topRated} />
           <Row title="Netflix Originals" movies={netflixOriginals} />
           {/* myList */}
+          {list.length > 0 && <Row title="My List" movies={list} />}
           <Row title="Action Thrillers" movies={actionMovies} />
           <Row title="Comedies" movies={comedyMovies} />
           <Row title="Horror" movies={horrorMovies} />
