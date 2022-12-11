@@ -64,4 +64,12 @@
   .menu-item {
     @apply !w-80 !block !py-3.5 !text-center !text-sm !font-light !text-[#b3b3b3] !transition !duration-200 first:!text-white first:!cursor-default first:!font-normal hover:!bg-[#201e1c];
   }
+
+  .footerIcon {
+    @apply w-6 h-6 cursor-pointer;
+  }
+
+  .footerLink {
+    @apply hover:underline cursor-pointer font-light;
+  }
 }

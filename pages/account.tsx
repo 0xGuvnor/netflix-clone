@@ -3,6 +3,7 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Footer from "../components/Footer";
 import Membership from "../components/Membership";
 import useAuth from "../hooks/useAuth";
 import useSubscription from "../hooks/useSubscription";
@@ -93,6 +94,8 @@ const Account = ({ products }: Props) => {
           </p>
         </div>
       </main>
+
+      <Footer />
     </div>
   );
 };
