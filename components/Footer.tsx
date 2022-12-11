@@ -2,7 +2,6 @@ import { ImFacebook, ImYoutube } from "react-icons/im";
 import { GrInstagram, GrTwitter } from "react-icons/gr";
 import Image from "next/image";
 import tmdbLogo from "../public/tmdb_logo.svg";
-import wavesBorder from "../public/border_waves.svg";
 import WavesBorder from "./WavesBorder";
 
 const Footer = () => {
