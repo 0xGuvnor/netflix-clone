@@ -39,7 +39,7 @@ const Footer = () => {
 
       <div className="relative mt-14">
         <WavesBorder />
-        <div className="flex flex-wrap items-center justify-around pb-4 text-shadow-lg">
+        <div className="flex flex-col items-center justify-around pb-4 md:flex-row text-shadow-lg">
           <div className="flex space-x-1 text-xs font-light">
             <p>Movie data powered by </p>
             <a
