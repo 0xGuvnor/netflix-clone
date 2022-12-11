@@ -31,7 +31,7 @@ const Footer = () => {
         <div className="inline-block px-2 py-1 text-sm font-light border border-gray-700 cursor-pointer text-stone-500 hover:text-white">
           Service Code
         </div>
-        <div className="text-xs text-stone-500">
+        <div className="text-xs cursor-default text-stone-500">
           © 1997 - 2022 Netflix, Inc.
         </div>
       </div>
