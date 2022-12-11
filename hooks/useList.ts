@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { db } from "../firebase";
 import { Movie } from "../typings";
 
-const useList = (uid: string) => {
+const useList = (uid: string | undefined) => {
   const [list, setList] = useState<Movie[] | DocumentData[]>([]);
 
   useEffect(() => {
