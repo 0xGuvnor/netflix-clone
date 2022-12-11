@@ -16,6 +16,8 @@ const Membership = () => {
     }
   };
 
+  console.log(subscription?.current_period_end);
+
   return (
     <div className="grid grid-cols-1 px-4 mt-6 border gap-x-4 md:grid-cols-4 md:border-x-0 md:border-b-0 md:px-0">
       <div className="py-4 space-y-2">
@@ -46,13 +48,19 @@ const Membership = () => {
 
         <div className="flex flex-col justify-between pt-4 pb-4 md:flex-row md:pb-0">
           <div>
-            <p>
+            <p className="flex">
               {subscription?.cancel_at_period_end
                 ? "Your membership will end on "
                 : "Your next billing date is "}
-              {new Date(
-                subscription?.current_period_end as string
-              ).toDateString()}
+              {subscription?.current_period_end === undefined ? (
+                <span className="flex ml-1 bg-gray-700 rounded animate-pulse">
+                  <span className="w-32 h-2"></span>
+                </span>
+              ) : (
+                new Date(
+                  subscription?.current_period_end as string
+                ).toDateString()
+              )}
             </p>
           </div>
           <div className="md:text-right">

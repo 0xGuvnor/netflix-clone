@@ -16,8 +16,6 @@ const Account = ({ products }: Props) => {
   const { user, logout } = useAuth();
   const subscription = useSubscription(user);
 
-  console.log(products);
-
   return (
     <div>
       <Head>
@@ -56,9 +54,15 @@ const Account = ({ products }: Props) => {
               width={24}
               height={24}
             />
-            <p className="text-xs font-semibold text-[#555]">
+            <p className="text-xs font-semibold text-[#555] flex">
               Member since{" "}
-              {new Date(subscription?.created as string).toDateString()}
+              {subscription?.created ? (
+                new Date(subscription!.created as string).toDateString()
+              ) : (
+                <span className="flex ml-1 bg-gray-700 rounded animate-pulse">
+                  <span className="w-24 h-2"></span>
+                </span>
+              )}
             </p>
           </div>
         </div>

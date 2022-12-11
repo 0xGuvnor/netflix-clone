@@ -2,6 +2,7 @@ import Button from "@mui/material/Button";
 import MuiMenu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { MouseEvent, useState } from "react";
+import { IoMdArrowDropup } from "react-icons/io";
 
 export default function Menu() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -23,7 +24,14 @@ export default function Menu() {
         onClick={handleClick}
         className="!normal-case !text-white/80"
       >
-        Browse
+        Browse{" "}
+        <span>
+          <IoMdArrowDropup
+            className={`w-4 h-4 transition duration-300 ease-in-out ${
+              open && "rotate-180"
+            }`}
+          />
+        </span>
       </Button>
       <div
         className={`absolute flex flex-col items-center w-5 overflow-hidden translate-x-[1.35rem] -translate-y-2 ${

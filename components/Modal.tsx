@@ -109,7 +109,6 @@ const Modal = () => {
         );
 
         const data = await res.json();
-        console.log(data);
 
         if (data?.videos) {
           const index = data.videos.results.findIndex(
@@ -199,9 +198,9 @@ const Modal = () => {
             </div>
 
             <div className="flex flex-col font-light gap-x-10 gap-y-4 md:flex-row">
-              <div className="space-y-1 md:space-y-3">
+              <div className="space-y-1 md:w-5/6 md:space-y-3">
                 <p className="text-2xl font-bold">{modalMovie?.title}</p>
-                <p className="w-5/6">{modalMovie?.overview}</p>
+                <p className="w-full text-left">{modalMovie?.overview}</p>
               </div>
               <div className="flex flex-col space-y-3 text-sm">
                 <div>
@@ -216,7 +215,9 @@ const Modal = () => {
 
                 <div>
                   <span className="text-[gray]">Original language: </span>
-                  {modalMovie?.original_language}
+                  <span className="uppercase">
+                    {modalMovie?.original_language}
+                  </span>
                 </div>
 
                 <div>
