@@ -2,27 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.custom-shape-divider-bottom-1670767027 {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.custom-shape-divider-bottom-1670767027 svg {
-  position: relative;
-  display: block;
-  width: calc(100% + 1.3px);
-  height: 120px;
-}
-
-.custom-shape-divider-bottom-1670767027 .shape-fill {
-  fill: #e50914;
-}
-
 @layer base {
   body {
     @apply bg-[#141414] text-white /*!scrollbar-thin !scrollbar-track-transparent !scrollbar-thumb-red-600 !scrollbar-corner-transparent;*/;
@@ -92,5 +71,26 @@
 
   .footerLink {
     @apply hover:underline cursor-pointer font-light;
+  }
+
+  .custom-shape-divider-bottom-1670767027 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+
+  .custom-shape-divider-bottom-1670767027 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 120px;
+  }
+
+  .custom-shape-divider-bottom-1670767027 .shape-fill {
+    fill: #e50914;
   }
 }
