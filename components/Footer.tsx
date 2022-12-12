@@ -52,11 +52,11 @@ const Footer = () => {
 
           <div className="text-xs font-light hover:underline">
             <a
-              href="https://github.com/0xpaprhnds/netflix-clone"
+              href="https://github.com/0xGuvnor/netflix-clone"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Made with ⚡️ by 0xpaprhnds
+              Made with ⚡️ by 0xGuvnor
             </a>
           </div>
         </div>
