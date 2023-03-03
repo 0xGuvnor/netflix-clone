@@ -36,7 +36,7 @@ const Login = () => {
       </Head>
 
       <Image
-        src="https://rb.gy/p2hphi"
+        src="/netflix_login_background.jpg"
         alt="Netflix Login Page Background"
         fill
         quality={100}
