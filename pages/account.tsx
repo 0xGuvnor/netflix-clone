@@ -27,7 +27,7 @@ const Account = ({ products }: Props) => {
       <header className="bg-[#14141]">
         <Link href="/">
           <Image
-            src="https://rb.gy/ulxxee"
+            src="/netflix_logo_full.svg"
             alt="Netflix Logo"
             width={120}
             height={120}
@@ -50,7 +50,7 @@ const Account = ({ products }: Props) => {
           <h1 className="text-3xl md:text-4xl">Account</h1>
           <div className="-ml-0.5 flex items-center gap-x-1.5">
             <Image
-              src="https://rb.gy/4vfk4r"
+              src="/play_icon.svg"
               alt="Play Icon"
               width={24}
               height={24}

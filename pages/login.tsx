@@ -43,7 +43,7 @@ const Login = () => {
         className="-z-10 !hidden opacity-40 object-cover sm:!inline"
       />
       <Image
-        src="https://rb.gy/ulxxee"
+        src="/netflix_logo_full.svg"
         width={150}
         height={150}
         alt="Netflix Logo"
